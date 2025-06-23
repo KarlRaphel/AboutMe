@@ -138,6 +138,7 @@
       <p>
         © {{ new Date().getFullYear() }} {{ personalInfo.name }}. 使用 Vue.js
         构建.
+        <a href="https://github.com/KarlRaphel/AboutMe">Source Code</a>
       </p>
     </footer>
   </div>
