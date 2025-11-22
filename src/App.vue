@@ -93,6 +93,39 @@
         </div>
       </section>
 
+
+      <!-- 5.5. 实习经历 -->
+      <section class="section">
+        <h2><i class="icon icon-projects"></i>实习经历</h2>
+        <div class="project-list">
+          <div
+            v-for="(internship, index) in internships"
+            :key="index"
+            class="card project-card"
+          >
+            <div class="project-header">
+              <h3>{{ internship.company }}</h3>
+              <span class="project-role">{{ internship.role }}</span>
+            </div>
+            <p class="project-date">{{ internship.date }}</p>
+            <p class="project-description">{{ internship.description }}</p>
+            <div v-if="internship.achievements && internship.achievements.length > 0">
+              <h4>主要业绩:</h4>
+              <ul>
+                <li v-for="(achievement, i) in internship.achievements" :key="i">
+                  {{ achievement }}
+                </li>
+              </ul>
+            </div>
+            <div class="tags-container">
+              <span v-for="tag in internship.tags" :key="tag" class="tag">{{
+                tag
+              }}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- 6. 学术成果 -->
       <section class="section">
         <h2><i class="icon icon-publications"></i>学术成果</h2>
@@ -146,19 +179,19 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import avatarUrl from "./assets/avatar.png";
+import avatarUrl from "./assets/avatar.jpg";
 
 const personalInfo = ref({
   name: "彭浩天",
   education_status: "中科院在读博士生",
-  location: "南通",
+  location: "江苏南通",
   phone: "15295797613",
   email: "pht0613@163.com",
   avatar: avatarUrl,
 });
 
 const aboutMe = ref(
-  "目前研究方向为深度学习和工业大模型, 在 AAAI（人工智能顶会）、IEEE Trans等会议、期刊上发表多篇高水平论文。能熟练使用Python、JavaScript 等编程语言, 掌握 Pytorch 编写各类深度学习算法, 对于振动、音频、力信号的信息挖掘具有一定的经验。在项目方面, 能够使用 Electron、Vue、SQL、FastAPI 等现代化工具构建前后端应用框架, 完成具体目标的落地实施。"
+  "目前研究方向为深度学习和工业大模型, 在 AAAI（人工智能顶会）、EAAI、IEEE Trans等会议、期刊上发表多篇高水平论文。能熟练使用Python、JavaScript 等编程语言, 掌握 Pytorch 编写各类深度学习算法, 对于振动、音频、力信号的信息挖掘具有一定的经验。在项目方面, 能够使用 Electron、Vue、SQL、FastAPI 等现代化工具构建前后端应用框架, 完成具体目标的落地实施。"
 );
 
 const skills = ref([
@@ -210,10 +243,27 @@ const projects = ref([
     achievements: [
       "负责核心算法的研发与优化，显著提升了设备的监测准确率。",
       "主导软件开发工作，确保系统稳定性和用户界面的友好性。",
-      "通过有效的技术成果转化，助力项目实现商业价值，直接贡献于1000万元以上的盈利。",
+      "通过有效的技术成果转化，助力项目实现商业价值，直接贡献于3000万元以上的盈利。",
     ],
     tags: ["深度学习", "Electron", "微信小程序", "全栈", "医疗AI"],
   },
+]);
+
+const internships = ref([
+{
+  company: "华为技术有限公司",
+  role: "AI算法工程师实习生",
+  date: "2025.08 - 2025.11",
+  description: "主导个性化语音降噪（PNR）算法研发与工程落地，实现基于声纹的干扰人声抑制；完成从PyTorch模型到C++端侧部署的全链路集成。同时探索说话人分割前沿技术，复现并评测Streaming Sortformer、PyAnnote等模型在真实场景下的性能。",
+  achievements: [
+    "实现低延迟流式降噪系统（<2ms/帧），集成至华为会议软终端，效果优于腾讯会议、华为云会议等主流产品。",
+    "攻克 OpenVINO 跨平台编译兼容性难题，完成算法C++工程化部署，支撑实时音频处理链路稳定运行。",
+    "构建仿真与实测混合评测体系，覆盖混响、噪声、多设备等复杂场景，为团队提供标准化评估方案。"
+  ],
+  tags: [
+    "语音降噪", "声纹识别", "流式推理", "C++", "信号处理", "端侧部署"
+  ]
+}
 ]);
 
 // GitHub 项目列表
@@ -253,36 +303,44 @@ onMounted(() => {
 const publications = ref([
   {
     title:
-      "BearLLM: A Prior Knowledge-Enhanced Bearing Health Management Framework with Unified Vibration Signal Representation.",
+      "BearLLM: A Prior Knowledge-Enhanced Bearing Health Management Framework with Unified Vibration Signal Representation",
     journal: "Proceedings of the AAAI Conference on Artificial Intelligence",
     details: "(CCF-A, 人工智能顶会, 一作)",
   },
   {
     title:
-      "A Lightweight Triple-Stream Network with Multi-Sensor Fusion for Enhanced Few-Shot Learning Fault Diagnosis.",
+      "A Unified Rotating Machinery Health Management Framework Leveraging Large Language Models for Diverse Components, Conditions, and Tasks",
+    journal: "Engineering Applications of Artificial Intelligence",
+    details: "(中科院一区，IF=8.0, CCF-C, 人工智能顶刊, 一作)",
+  },
+  {
+    title:
+      "A Lightweight Triple-Stream Network with Multi-Sensor Fusion for Enhanced Few-Shot Learning Fault Diagnosis",
     journal: "IEEE Transactions on Reliability",
     details: "(JCR Q1, IF=5.7, 一作)",
   },
   {
     title:
-      "Adversarial Training of Multi-Scale Channel Attention Network for Enhanced Robustness in Bearing Fault Diagnosis.",
+      "Adversarial Training of Multi-Scale Channel Attention Network for Enhanced Robustness in Bearing Fault Diagnosis",
     journal: "Measurement Science and Technology",
     details: "(JCR Q1, IF=3.4, 一作)",
   },
   {
     title:
-      "A Spectral Interpretable Bearing Fault Diagnosis Framework Powered by Large Language Models.",
+      "A Spectral Interpretable Bearing Fault Diagnosis Framework Powered by Large Language Models",
     journal: "Sensors",
     details: "(JCR Q2, IF=3.5, 通讯)",
   },
 ]);
 
 const awards = ref([
+  "中国科学院优秀党员",
   "本科生国家奖学金",
   "江苏省优秀学生干部",
   "江苏省优秀毕业设计",
   "河海大学优秀毕业生",
-  "挑战杯",
+  "河海大学百佳学生",
+  "挑战杯一等奖",
   "机械设计竞赛",
   "数学建模美赛",
 ]);
