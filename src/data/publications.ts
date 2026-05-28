@@ -48,7 +48,7 @@ export const publishedPapers: Paper[] = [
     role: '第一作者',
     year: 2024,
     relatedProject: 'aeroengine',
-    url: '',
+    url: 'https://ieeexplore.ieee.org/document/11536821',
   },
   {
     id: 'paper-mst',
