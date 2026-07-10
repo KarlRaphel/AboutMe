@@ -2,8 +2,8 @@
 import { skills } from '../data/skills'
 
 const categoryIcons: Record<string, string> = {
-  '大模型与核心算法': '🧠',
-  '具身智能与端侧部署': '🤖',
+  '多模态大模型与算法': '🧠',
+  'Agent、具身智能与端侧部署': '🤖',
   '全栈架构与系统工程': '💻',
 }
 </script>

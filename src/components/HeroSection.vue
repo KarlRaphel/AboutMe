@@ -8,14 +8,14 @@
         <div class="hero__greeting animate-fade-in-up">Hello, I'm</div>
         <h1 class="hero__name animate-fade-in-up" style="animation-delay: 0.1s">彭浩天</h1>
         <p class="hero__title animate-fade-in-up" style="animation-delay: 0.15s">
-          算法工程师 (大模型应用 / 具身智能 / 端侧部署)
+          多模态大模型与智能系统 · 算法工程师
         </p>
         <p class="hero__affiliation animate-fade-in-up" style="animation-delay: 0.2s">
-          中国科学院大学 博士在读（沈阳自动化研究所）<br />
-          辽宁省智能检测与装备重点实验室
+          中国科学院大学博士（直博）· 沈阳自动化研究所<br />
+          辽宁省智能检测与装备重点实验室 · 预计 2027 年 6 月毕业
         </p>
         <p class="hero__bio animate-fade-in-up" style="animation-delay: 0.22s">
-          专注探索多模态大模型与具身智能的前沿交叉，致力于将先进 AI 算法向真实物理世界与端侧硬件落地。拥有在工业健康感知、智能医疗康复等复杂场景下的全链路研发与商业化落地经验。
+          围绕时序信号、语音与大模型开展跨模态对齐、垂类应用和复杂场景鲁棒性研究。具备从大模型 SFT、多模态 RAG、多级记忆、工具调用与多 Agent 编排，到 ROS2/VLA 物理执行及端侧部署的完整系统研发经验。
         </p>
 
         <div class="hero__contact animate-fade-in-up" style="animation-delay: 0.25s">
@@ -38,14 +38,12 @@
         </div>
 
         <div class="hero__tags animate-fade-in-up" style="animation-delay: 0.3s">
-          <span class="tag tag--blue">深度学习 (Python/PyTorch)</span>
-          <span class="tag tag--blue">大模型与多模态 (LLM/VLM/RAG)</span>
-          <span class="tag tag--indigo">具身智能与机器人控制 (ROS2)</span>
-          <span class="tag tag--green">端侧部署与推理加速 (C++/OpenVINO/ONNX)</span>
-          <span class="tag tag--pink">AI 医疗与智能康复</span>
-          <span class="tag tag--yellow">工业智能硬件与健康管理</span>
-          <span class="tag tag--teal">高并发全栈系统架构 (Vue/FastAPI)</span>
-          <span class="tag tag--blue">语音与物理信号处理</span>
+          <span class="tag tag--blue">多模态大模型 · SFT / RAG</span>
+          <span class="tag tag--indigo">Agent 系统 · ROS2 / VLA</span>
+          <span class="tag tag--green">端侧部署 · C++ / ONNX / OpenVINO</span>
+          <span class="tag tag--pink">智能医疗 · 语音与时序信号</span>
+          <span class="tag tag--yellow">工业智能 · 复杂场景鲁棒学习</span>
+          <span class="tag tag--teal">PyTorch · Vue / FastAPI</span>
         </div>
       </div>
 

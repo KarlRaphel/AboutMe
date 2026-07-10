@@ -24,7 +24,7 @@ export const publishedPapers: Paper[] = [
     id: 'paper-eaai',
     title: 'A unified rotating machinery health management framework leveraging large language models for diverse components, conditions, and tasks',
     venue: 'Engineering Applications of Artificial Intelligence (EAAI)',
-    venueTag: '中科院一区 TOP | CCF-C | IF=8.0',
+    venueTag: '中科院一区 TOP | CCF-C | IF=9.0',
     role: '第一作者',
     year: 2024,
     relatedProject: 'bearllm',
@@ -34,7 +34,7 @@ export const publishedPapers: Paper[] = [
     id: 'paper-ieee-tr',
     title: 'A Lightweight Triple-Stream Network with Multi-sensor Fusion for Enhanced Few-Shot Learning Fault Diagnosis',
     venue: 'IEEE Transactions on Reliability',
-    venueTag: 'JCR Q1 | IF=5.7',
+    venueTag: 'JCR Q1 | CCF-C | IF=5.4',
     role: '第一作者',
     year: 2024,
     relatedProject: 'aeroengine',
@@ -54,7 +54,7 @@ export const publishedPapers: Paper[] = [
     id: 'paper-mst',
     title: 'Adversarial training of multi-scale channel attention network for enhanced robustness in bearing fault diagnosis',
     venue: 'Measurement Science and Technology',
-    venueTag: 'JCR Q1 | IF=3.4',
+    venueTag: 'JCR Q1 | IF=3.7',
     role: '第一作者',
     year: 2024,
     relatedProject: 'aeroengine',
@@ -64,11 +64,21 @@ export const publishedPapers: Paper[] = [
     id: 'paper-sensors',
     title: 'A Spectral Interpretable Bearing Fault Diagnosis Framework Powered by Large Language Models',
     venue: 'Sensors',
-    venueTag: 'JCR Q2 | IF=3.5',
+    venueTag: 'JCR Q2 | IF=4.0',
     role: '通讯作者',
     year: 2024,
     relatedProject: 'bearllm',
     url: 'https://www.mdpi.com/1424-8220/25/12/3822',
+  },
+  {
+    id: 'paper-ijphm',
+    title: 'Physics-Informed Multi-Scale Network with Loss-Guided Curriculum Learning for Robust Fault Diagnosis',
+    venue: 'International Journal of Prognostics and Health Management',
+    venueTag: 'SCI | IF=2.0',
+    role: '通讯作者',
+    year: 2026,
+    relatedProject: 'aeroengine',
+    url: 'https://papers.phmsociety.org/index.php/ijphm/article/view/4766',
   },
 ]
 
@@ -80,15 +90,6 @@ export const underReviewPapers: Paper[] = [
     venueTag: 'CCF-B | 语音顶刊',
     role: '第一作者',
     relatedProject: 'idpse',
-    url: '',
-  },
-  {
-    id: 'paper-aei',
-    title: 'Physics-Informed Multi-Scale Network with Loss-Guided Curriculum Learning for Robust Fault Diagnosis',
-    venue: 'Advanced Engineering Informatics',
-    venueTag: '中科院一区 TOP | IF=8.0',
-    role: '通讯作者',
-    relatedProject: 'aeroengine',
     url: '',
   },
   {
@@ -153,4 +154,8 @@ export const patents: Patent[] = [
     relatedProject: 'medical'
   }
 ]
+
+export function getPatentsByProject(projectId: string): Patent[] {
+  return patents.filter(patent => patent.relatedProject === projectId)
+}
 

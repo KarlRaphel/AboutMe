@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { getProjectById } from '../data/projects'
-import { getPaperById } from '../data/publications'
+import { getPaperById, getPatentsByProject } from '../data/publications'
 import { getRepoById } from '../data/repos'
 
 const route = useRoute()
@@ -22,6 +22,11 @@ const relatedReposData = computed(() => {
   return project.value.relatedRepos
     .map(id => getRepoById(id))
     .filter(Boolean)
+})
+
+const relatedPatentsData = computed(() => {
+  if (!project.value) return []
+  return getPatentsByProject(project.value.id)
 })
 
 function goBack() {
@@ -96,7 +101,7 @@ function goBack() {
         </div>
 
         <!-- Related outputs -->
-        <div v-if="relatedPapersData.length > 0 || relatedReposData.length > 0 || project.commercial" class="detail-related animate-fade-in-up">
+        <div v-if="relatedPapersData.length > 0 || relatedPatentsData.length > 0 || relatedReposData.length > 0 || project.commercial" class="detail-related animate-fade-in-up">
           <h2 class="detail-section__title">关联成果</h2>
 
           <div v-if="project.commercial" class="detail-related__commercial">
@@ -112,6 +117,14 @@ function goBack() {
                 <span>{{ paper!.venue }}</span>
                 <span class="detail-related__paper-role">{{ paper!.role }}</span>
               </div>
+            </div>
+          </div>
+
+          <div v-if="relatedPatentsData.length > 0" class="detail-related__group">
+            <h3 class="detail-related__group-title">💡 关联专利</h3>
+            <div v-for="patent in relatedPatentsData" :key="patent.id" class="detail-related__patent">
+              <p class="detail-related__patent-title">{{ patent.title }}</p>
+              <span class="detail-related__patent-type">{{ patent.type }}</span>
             </div>
           </div>
 
@@ -353,6 +366,37 @@ function goBack() {
   margin-bottom: 0;
 }
 
+.detail-related__patent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-3);
+}
+
+.detail-related__patent:last-child {
+  margin-bottom: 0;
+}
+
+.detail-related__patent-title {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  line-height: var(--leading-relaxed);
+}
+
+.detail-related__patent-type {
+  flex-shrink: 0;
+  padding: 2px var(--space-2);
+  background: var(--color-accent-light);
+  color: var(--color-accent-primary);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+}
+
 .detail-related__paper-title {
   font-size: var(--text-sm);
   font-style: italic;
@@ -399,5 +443,13 @@ function goBack() {
 .detail-related__repo-stars {
   font-size: var(--text-sm);
   color: var(--color-text-tertiary);
+}
+
+@media (max-width: 480px) {
+  .detail-related__patent {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
 }
 </style>
